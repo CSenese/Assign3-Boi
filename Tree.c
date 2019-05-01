@@ -62,6 +62,7 @@ Node* get_tree() {
 			break;
 		}
 		case 22 : {
+			current_token = get_token();
 			return current_node;
 			break;
 		}
@@ -194,11 +195,8 @@ Node* get_parenth(Node* current_node) {
 		current_token = get_token();		
 		current_node = get_tree();
 		
-		printf("Got here 3\n");
-		printf("Current Token:  %d\n",current_token->ID);
 		if (current_token->ID == 12) {
 			current_token = get_token();
-			printf("Got here 4\n");
 			return current_node;
 		} else {
 			Token temptoken = {-1,-1,-1,-1,current_token->characters};

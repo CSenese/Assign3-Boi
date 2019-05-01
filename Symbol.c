@@ -11,7 +11,7 @@ int symbol_offset = 0;
 
 void print (long int i)
 {
-    printf("Value:  %d\n",i);
+    printf("Value:  %ld\n",i);
 }
 
 int read() {
