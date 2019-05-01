@@ -248,10 +248,10 @@ Node* create_node(Token* atoken) {
 void Print_tree(Node* anode) {
 	Node* temp = anode;
 	
-	if (temp->left != NULL) {
+	if (temp->left != nullptr) {
 		Print_tree(temp->left);
 	}
-	if (temp->right != NULL) {
+	if (temp->right != nullptr) {
 		Print_tree(temp->right);
 	}
 	
