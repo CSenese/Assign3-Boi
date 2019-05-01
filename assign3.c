@@ -15,10 +15,12 @@ int main (int arg,char *argV[]) {
 	if (current_tree->ID == -1) {
 		printf("Something went wrong\n");
 	}
-			
+		
 	Print_tree(current_tree);
 		
 	catchit = tree_To_Code(current_tree);
+	
+	printf("Come on!!!!!!!!\n");
 		
 	if (catchit == 2) {
 		printf("Something went wrong with that last tre");

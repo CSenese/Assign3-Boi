@@ -11,6 +11,7 @@ Node* get_tree() {
 	
 	Node* current_node = NULL;
 	
+	
 	//currently the switch statement is useless but when we add in more stuff later it will change
 	switch(current_token->ID) {
 		case 24 : {
@@ -28,9 +29,7 @@ Node* get_tree() {
 			current_node = create_node(current_token);
 			
 			current_node = get_parenth(current_node);
-			printf("Got here 1\n");
-			printf("Current Token: %d\n",current_token->ID);
-			printf("Got here 2\n");
+			
 			if (current_node->ID == -1) {
 				printf("\nError processing token before token at line %d and character %d",current_token->line,current_token->characternum);
 				return NULL;
@@ -57,7 +56,13 @@ Node* get_tree() {
 				current_token = get_token();
 				current_node->left = get_tree();
 				
-				printf("Current Token: %d",current_token->ID);
+				if (current_token->ID  == 22) {
+					return current_node;
+				} else {
+					Token temptoken = {-1,-1,-1,-1,current_token->characters};
+					Node* badnode = create_node(&temptoken);
+					return badnode;
+				}
 			}
 			break;
 		}
@@ -67,6 +72,9 @@ Node* get_tree() {
 			break;
 		}
 	}
+	Token temptoken = {-1,-1,-1,-1,current_token->characters};
+	Node* badnode = create_node(&temptoken);
+	return badnode;
 }
 
 
@@ -227,6 +235,7 @@ Node* get_terminal(Node* current_node) {
 Node* create_node(Token* atoken) {
 	void* aspace = malloc(sizeof(Node));
 	Node* anode = (struct Node* )aspace;
+	
 	anode->ID = atoken->ID;
 	if (atoken->ID == 24) {
 		anode->value = atoken->value;

@@ -163,6 +163,7 @@ int tree_To_Code(Node* current_node) {
 					littleEndian(addr);
 					program[p_offset++] = '\xff';  // CALL RSI
   					program[p_offset++] = '\xd6';
+  					i++;
 				}
 			}
 			break;
