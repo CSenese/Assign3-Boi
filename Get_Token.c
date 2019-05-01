@@ -602,12 +602,12 @@ Token* get_token() {
 					int i;
 					for (i = 0;i < atoken.value;i++) {
 						if (atoken.characters[i] == 'e' || atoken.characters[i] == 'E') {
-							int i = -1;
+							i = -1;
 							break;
 						}
 					}
 					if (atoken.characters[atoken.value - 1] == '.') {
-						int i = -1;
+						i = -1;
 					}
 					if (i == -1) {
 						atoken.ID = -1;
@@ -638,7 +638,7 @@ Token* get_token() {
 					int i;
 					for (i = 0;i < atoken.value;i++) {
 						if (atoken.characters[i] == '.') {
-							int i = -1;
+							i = -1;
 							break;
 						}
 					}
@@ -747,23 +747,23 @@ void token_print(Token* atoken) {
 			printf("Invalid Token:\n");
 			printf("Token:  %s\tID:  %d\nLine:  %d\tCharacter:   "
 			"%d\tValue:  %d\n\n",atoken->characters,atoken->ID,
-			atoken->line,atoken->characternum,strlen(atoken->characters),atoken->value);
+			atoken->line,(atoken->characternum - strlen(atoken->characters)),atoken->value);
 			token_clear(atoken);
 		} else {
 			printf("Token:  %s\tID:  %d\nLine:  %d\tCharacter:   "
 			"%d\tValue:  %d\n\n",atoken->characters,atoken->ID,
-			atoken->line,atoken->characternum,strlen(atoken->characters),atoken->value);
+			atoken->line,(atoken->characternum - strlen(atoken->characters)),atoken->value);
 			token_clear(atoken);
 		}	
 	} else {
 		if (atoken->ID < 0) {
 			printf("Invalid Token:\n");
 			printf("Token:  %s\tID:  %d\nLine:  %d\tCharacter:   %d\n\n",atoken->characters,atoken->ID,
-			atoken->line,atoken->characternum,strlen(atoken->characters));
+			atoken->line,(atoken->characternum - strlen(atoken->characters)));
 			token_clear(atoken);
 		} else {
 			printf("Token:  %s\tID:  %d\r\nLine:  %d\tCharacter:   %d\n\n",atoken->characters,atoken->ID,
-			atoken->line,atoken->characternum,strlen(atoken->characters));
+			atoken->line,(atoken->characternum - strlen(atoken->characters)));
 			token_clear(atoken);
 		}
 	}
